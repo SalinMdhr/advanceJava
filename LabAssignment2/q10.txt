@@ -1,2 +1,0 @@
-java.awt.BorderLayout.
-java.awt.CardLayout.
