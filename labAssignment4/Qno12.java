@@ -42,7 +42,7 @@ public class Qno12 {
         addBtn.addActionListener(e -> {
             String name = nameField.getText();
             String address = addressField.getText();
-            String gender = jRadioBtn1.isSelected() ? "male" : (jRadioBtn2.isSelected() ? "felame" : "invalid");
+            String gender = jRadioBtn1.isSelected() ? "male" : (jRadioBtn2.isSelected() ? "female" : "invalid");
             String program = (String) comboBox.getSelectedItem();
             String phone = phoneField.getText();
             String email = emailField.getText();
