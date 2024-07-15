@@ -7,11 +7,12 @@ CREATE TABLE users (
 CREATE TABLE students (
 	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	fname VARCHAR(50),
-	lname VARCHAR(50),
-	DOB DATE,
-	gender VARCHAR(50),
 	address VARCHAR(50),
-	contact VARCHAR(50) UNIQUE
+	gender VARCHAR(50),
+	DOB DATE,
+	program VARCHAR(50),
+	contact VARCHAR(50) UNIQUE,
+	email VARCHAR(50)
 );
 
 INSERT INTO users (username, upassword) VALUES

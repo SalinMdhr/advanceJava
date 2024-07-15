@@ -1,34 +1,39 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class UserLogin {
+public class UserLoginGUI {
     private JTextField unameField, passField;
 
-    public UserLogin() {
+    public UserLoginGUI() {
         JFrame frame = new JFrame("User Login");
         JPanel panel = new JPanel(new GridBagLayout());
         
         JLabel unameLabel = new JLabel("Username");
         JLabel passLabel = new JLabel("Password");
-        unameField = new JTextField(7);
-        passField = new JTextField(7);
+        JLabel msgLabel = new JLabel();
+        unameField = new JTextField(15);
+        passField = new JTextField(15);
         JButton submitBtn = new JButton("Submit");
 
         submitBtn.addActionListener(e -> {
             String username = unameField.getText();
             String password = passField.getText();
-            String query = "SELECT * FROM users WHERE username = ? AND passwords = ?";
+            String query = "SELECT * FROM users WHERE username = ? AND upassword = ?";
             ValidateLogin vl = new ValidateLogin();
             boolean isValid = vl.loginValidation(query, username, password);
 
             if(isValid) {
-                // unameLabel.setText("VALID");
+                JOptionPane.showMessageDialog(frame, "Welcome User", "Welcome", JOptionPane.INFORMATION_MESSAGE);
+                msgLabel.setText(null);
+
+            } else {
+                msgLabel.setText("Incorrect username or password");
             }
 
         });
 
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(0, 0, 15, 0);
+        gbc.insets = new Insets(0, 5, 15, 0);
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
         gbc.gridx = 0;
@@ -49,15 +54,18 @@ public class UserLogin {
         gbc.gridy = 2;
         gbc.gridwidth = 2;
         panel.add(submitBtn, gbc);
+
+        msgLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        gbc.gridx = 0;
+        gbc.gridy = 3;
+        panel.add(msgLabel, gbc);
        
         frame.add(panel);
-        frame.setSize(200, 200);
+        frame.setSize(600, 200);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
     }
-    public static void main(String[] args) {
-        // JDBCConnection jconn = new JDBCConnection();
-        new UserLogin();
-
-    }
+    // public static void main(String[] args) {
+    //     new UserLoginGUI();
+    // }
 }
