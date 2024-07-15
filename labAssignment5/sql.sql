@@ -1,0 +1,18 @@
+CREATE DATABASE NCCS;
+CREATE TABLE users (
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	username VARCHAR(50),
+	upassword VARCHAR(50)
+);
+CREATE TABLE students (
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	fname VARCHAR(50),
+	lname VARCHAR(50),
+	DOB DATE,
+	gender VARCHAR(50),
+	address VARCHAR(50),
+	contact VARCHAR(50) UNIQUE
+);
+
+INSERT INTO users (username, upassword) VALUES
+("Ram", "1234");
