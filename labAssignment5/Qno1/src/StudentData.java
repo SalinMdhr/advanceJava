@@ -4,17 +4,23 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
-public class ListStudent {
+public class StudentData {
     private static DefaultTableModel model;
-    public ListStudent() {
+    public StudentData() {
         JFrame frame = new JFrame("Student List");
         JPanel panel = new JPanel();
 
         JButton updateBtn = new JButton("Update");
+        JButton deleteBtn = new JButton("Delete");
 
         JTable table = new JTable();
         table.setPreferredScrollableViewportSize(new Dimension(800, 100));
-        model = new DefaultTableModel();
+        model = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return column !=0; // Make all columns editable except the first one (Id)
+            }
+        };
         table.setModel(model);
         model.addColumn("Id");
         model.addColumn("Name");
@@ -35,9 +41,11 @@ public class ListStudent {
         sp.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 
         updateBtn.addActionListener(e -> updateStudentDetails(table));
+        deleteBtn.addActionListener(e -> deleteStudentDetails(table));
 
         panel.add(sp);
         panel.add(updateBtn);
+        panel.add(deleteBtn);
         
         frame.add(panel);
         frame.setSize(200, 200);
@@ -45,7 +53,7 @@ public class ListStudent {
         frame.setVisible(true);
     }
     public static void main(String[] args) {
-        new ListStudent();
+        new StudentData();
     }
 
     private static void updateStudentDetails(JTable table) {
@@ -72,7 +80,25 @@ public class ListStudent {
             System.out.println("ERROR" + ex.getMessage());
 
         }
+    }
 
+    private static void deleteStudentDetails(JTable table) {
+        int selectedRow = table.getSelectedRow();
+        if (selectedRow == -1) {
+            System.out.println("NO ROW SELECTED");
+        }
+
+        int id = (int) model.getValueAt(selectedRow, 0);
+
+        try {
+            IRUDFunction delete = new IRUDFunction();
+            delete.deleteFunction(id);
+
+            System.out.println("DELETED");
+        } catch (Exception ex) {
+            System.out.println("ERROR DELETING" + ex.getMessage());
+
+        }
     }
 
 }

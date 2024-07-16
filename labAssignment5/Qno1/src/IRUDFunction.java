@@ -65,9 +65,21 @@ public class IRUDFunction {
             pstmt.setString(6, phone);
             pstmt.setString(7, email);
             pstmt.executeUpdate();
-            System.out.println("MMMM");
         } catch (Exception e) {
             System.out.println("IRUD: ERROR" + e.getMessage());
+        }
+    }
+
+    public void deleteFunction(int id) {
+        String query = "DELETE FROM students WHERE id = ?";
+        try(
+            Connection conn = JDBCConnection.getConn();
+            PreparedStatement pstmt = conn.prepareStatement(query)
+        ) {
+            pstmt.setInt(1, id);
+            pstmt.executeUpdate();
+        } catch (Exception e) {
+            System.out.println("IRUD: DELETE ERROR" + e.getMessage());
         }
     }
 
