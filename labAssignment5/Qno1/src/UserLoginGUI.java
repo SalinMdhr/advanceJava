@@ -25,7 +25,7 @@ public class UserLoginGUI {
             if(isValid) {
                 JOptionPane.showMessageDialog(frame, "Welcome User", "Welcome", JOptionPane.INFORMATION_MESSAGE);
                 msgLabel.setText(null);
-                StudentData data = new StudentData();
+                new StudentData();
 
             } else {
                 msgLabel.setText("Incorrect username or password");
