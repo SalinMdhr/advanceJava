@@ -27,3 +27,12 @@ CREATE TABLE products (
 	price DOUBLE,
 	quantity INT
 );
+
+//Qno3
+CREATE DATABASE china_company;
+CREATE TABLE employees (
+	id INT NOT NULL PRIMARY KEY,
+	name VARCHAR(50),
+	position VARCHAR(50),
+	salary DOUBLE
+);
