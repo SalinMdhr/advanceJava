@@ -25,6 +25,7 @@ public class UserLoginGUI {
             if(isValid) {
                 JOptionPane.showMessageDialog(frame, "Welcome User", "Welcome", JOptionPane.INFORMATION_MESSAGE);
                 msgLabel.setText(null);
+                StudentData data = new StudentData();
 
             } else {
                 msgLabel.setText("Incorrect username or password");
@@ -65,7 +66,7 @@ public class UserLoginGUI {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
     }
-    // public static void main(String[] args) {
-    //     new UserLoginGUI();
-    // }
+    public static void main(String[] args) {
+        new UserLoginGUI();
+    }
 }

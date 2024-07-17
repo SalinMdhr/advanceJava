@@ -52,9 +52,9 @@ public class StudentData {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
     }
-    public static void main(String[] args) {
-        new StudentData();
-    }
+    // public static void main(String[] args) {
+    //     new StudentData();
+    // }
 
     private static void updateStudentDetails(JTable table) {
         int selectedRow = table.getSelectedRow();
