@@ -17,3 +17,13 @@ CREATE TABLE students (
 
 INSERT INTO users (username, upassword) VALUES
 ("Ram", "1234");
+
+
+//Qno2
+CREATE DATABASE pasal;
+CREATE TABLE products (
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(50),
+	price DOUBLE,
+	quantity INT
+);
