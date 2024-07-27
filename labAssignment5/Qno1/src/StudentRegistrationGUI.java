@@ -70,6 +70,8 @@ public class StudentRegistrationGUI {
                     insert.insertFunction(name, address, sqlDate, gender, program, phone, email);
 
                     JOptionPane.showMessageDialog(frame, "Student Registered");
+                    frame.dispose();
+                    new StudentData();
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(frame, "Date is Invalid: " + ex.getMessage());
                 }
@@ -87,7 +89,9 @@ public class StudentRegistrationGUI {
         });
 
         cancelBtn.addActionListener(e -> {
-            System.exit(0);
+            // System.exit(0);
+            frame.dispose();
+            new StudentData();
         });
 
         GridBagConstraints gbc = new GridBagConstraints();
@@ -183,7 +187,7 @@ public class StudentRegistrationGUI {
         frame.setVisible(true);
     }
 
-    public static void main(String[] args) {
-        new StudentRegistrationGUI();
-    }
+    // public static void main(String[] args) {
+    //     new StudentRegistrationGUI();
+    // }
 }

@@ -52,7 +52,7 @@ public class IRUDFunction {
     public void updateFunction(
         int id, String name, String address, String dob, String gender, String program, String phone, String email
     ) {
-        String query = "UPDATE students SET fname = ?, address = ?, gender = ?, DOB = ?, program = ?, contact = ?, email = ?";
+        String query = "UPDATE students SET fname = ?, address = ?, gender = ?, DOB = ?, program = ?, contact = ?, email = ? WHERE id = ?";
         try(
             Connection conn = JDBCConnection.getConn();
             PreparedStatement pstmt = conn.prepareStatement(query)
@@ -64,6 +64,7 @@ public class IRUDFunction {
             pstmt.setString(5, program);
             pstmt.setString(6, phone);
             pstmt.setString(7, email);
+            pstmt.setInt(8, id);
             pstmt.executeUpdate();
         } catch (Exception e) {
             System.out.println("IRUD: ERROR" + e.getMessage());
