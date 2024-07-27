@@ -68,9 +68,9 @@ public class StudentData {
         int id = (int) model.getValueAt(selectedRow, 0);
         String name = (String) model.getValueAt(selectedRow, 1);
         String address = (String) model.getValueAt(selectedRow, 2);
-        String gender = (String) model.getValueAt(selectedRow, 3);
+        // String gender = (String) model.getValueAt(selectedRow, 3);
         String dob = (String) model.getValueAt(selectedRow, 4);
-        String program = (String) model.getValueAt(selectedRow, 5);
+        // String program = (String) model.getValueAt(selectedRow, 5);
         String contact = (String) model.getValueAt(selectedRow, 6);
         String email = (String) model.getValueAt(selectedRow, 7);
 
