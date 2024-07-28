@@ -9,37 +9,36 @@ public class scrollableRS {
             // Create a Statement object with scrollable and read-only ResultSet
             Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             ResultSet rs = stmt.executeQuery(query);
-
-            if (rs.last()) {
-                System.out.println("last");
+            
+            // Scroll to the next row
+            while (rs.next()) {
                 printRow(rs);
             }
-
-            // Scroll to the first row
-            if (rs.first()) {
-                System.out.println("first");
+            
+            // Scroll to the previous row
+            while (rs.previous()) {
                 printRow(rs);
             }
 
             // Scroll to a specific row (e.g., the 3rd row)
             if (rs.absolute(3)) {
-                System.out.println("3");
                 printRow(rs);
+            } else {
+                System.out.println("Row not found");
             }
-
-            // Scroll to the previous row
-            if (rs.previous()) {
-                System.out.println("prev");
-                printRow(rs);
-            }
-
-            // Scroll to the next row
-            if (rs.next()) {
-                System.out.println("nex");
-                printRow(rs);
-            }
-
+            
             rs.close();
+
+            // if (rs.last()) {
+            //     System.out.println("last");
+            //     printRow(rs);
+            // }
+
+            // Scroll to the first row
+            // if (rs.first()) {
+            //     System.out.println("first");
+            //     printRow(rs);
+            // }
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -56,7 +55,7 @@ public class scrollableRS {
         String contact = rs.getString("contact");
         String email = rs.getString("email");
 
-        System.out.printf("ID: %d, Name: %s, Address: %s, Gender: %s, DOB: %s, Program: %s, Contact: %s, Email: %s%n",
+        System.out.printf("ID: %d, Name: %s, Address: %s, Gender: %s, DOB: %s, Program: %s, Contact: %s, Email: %s\n\n",
                 id, name, address, gender, dob, program, contact, email);
     }
 }
