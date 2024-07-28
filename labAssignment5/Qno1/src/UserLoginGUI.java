@@ -2,7 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class UserLoginGUI {
-    private JTextField unameField, passField;
+    private JTextField unameField;
+    private JPasswordField passField;
 
     public UserLoginGUI() {
         JFrame frame = new JFrame("User Login");
@@ -12,12 +13,12 @@ public class UserLoginGUI {
         JLabel passLabel = new JLabel("Password");
         JLabel msgLabel = new JLabel();
         unameField = new JTextField(15);
-        passField = new JTextField(15);
+        passField = new JPasswordField(15);
         JButton submitBtn = new JButton("Submit");
 
         submitBtn.addActionListener(e -> {
             String username = unameField.getText();
-            String password = passField.getText();
+            String password = new String(passField.getPassword());
             String query = "SELECT * FROM users WHERE username = ? AND upassword = ?";
             ValidateLogin vl = new ValidateLogin();
             boolean isValid = vl.loginValidation(query, username, password);

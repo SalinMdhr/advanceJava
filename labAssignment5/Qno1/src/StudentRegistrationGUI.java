@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 public class StudentRegistrationGUI {
     public StudentRegistrationGUI() {
         JFrame frame = new JFrame("Student Registration");
-        JPanel mainPanel = new JPanel(new GridBagLayout());
+        JPanel mainPanel = new JPanel(new GridLayout(8, 2));
         JPanel btnPanel = new JPanel();
 
         JLabel nameLabel = new JLabel("Name:");
@@ -93,93 +93,56 @@ public class StudentRegistrationGUI {
             frame.dispose();
             new StudentData();
         });
+        
+        mainPanel.add(nameLabel);
 
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(0, 0, 0, 0);
+        
+        mainPanel.add(nameField);
 
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        gbc.anchor = GridBagConstraints.WEST;
-        mainPanel.add(nameLabel, gbc);
+        
+        mainPanel.add(addressLabel);
 
-        gbc.gridx = 1;
-        gbc.insets = new Insets(0, 200, 0, 0);
-        gbc.anchor = GridBagConstraints.EAST;
-        mainPanel.add(nameField, gbc);
+        
+        mainPanel.add(addressField);
 
-        gbc.gridx = 0;
-        gbc.gridy = 1;
-        gbc.insets = new Insets(0, 0, 0, 0);
-        gbc.anchor = GridBagConstraints.WEST;
-        mainPanel.add(addressLabel, gbc);
+        
+        mainPanel.add(dobLabel);
 
-        gbc.gridx = 1;
-        gbc.anchor = GridBagConstraints.EAST;
-        mainPanel.add(addressField, gbc);
+        
+        mainPanel.add(dobField);
 
-        gbc.gridx = 0;
-        gbc.gridy = 2;
-        gbc.insets = new Insets(0, 0, 0, 0);
-        gbc.anchor = GridBagConstraints.WEST;
-        mainPanel.add(dobLabel, gbc);
-
-        gbc.gridx = 1;
-        gbc.anchor = GridBagConstraints.EAST;
-        mainPanel.add(dobField, gbc);
-
-        gbc.gridx = 0;
-        gbc.gridy = 3;
-        gbc.insets = new Insets(0, 0, 0, 0);
-        gbc.anchor = GridBagConstraints.WEST;
-        mainPanel.add(genderLabel, gbc);
+        
+        mainPanel.add(genderLabel);
 
         JPanel genderPanel = new JPanel();
         genderPanel.add(jRadioBtn1);
         genderPanel.add(jRadioBtn2);
 
-        gbc.gridx = 1;
-        gbc.insets = new Insets(0, 200, 0, 0);
-        gbc.anchor = GridBagConstraints.CENTER;
-        mainPanel.add(genderPanel, gbc);
+        
+        mainPanel.add(genderPanel);
 
-        gbc.gridx = 0;
-        gbc.gridy = 4;
-        gbc.gridwidth = 1;
-        gbc.insets = new Insets(0, 0, 0, 0);
-        gbc.anchor = GridBagConstraints.WEST;
-        mainPanel.add(programLabel, gbc);
+        
+        mainPanel.add(programLabel);
 
-        gbc.gridx = 1;
-        gbc.anchor = GridBagConstraints.EAST;
+        
         comboBox.setPreferredSize(
                 new Dimension(nameField.getPreferredSize().width, comboBox.getPreferredSize().height));
-        mainPanel.add(comboBox, gbc);
+        mainPanel.add(comboBox);
 
-        gbc.gridx = 0;
-        gbc.gridy = 5;
-        gbc.insets = new Insets(0, 0, 0, 0);
-        gbc.anchor = GridBagConstraints.WEST;
-        mainPanel.add(phoneLabel, gbc);
+        
+        mainPanel.add(phoneLabel);
 
-        gbc.gridx = 1;
-        gbc.anchor = GridBagConstraints.EAST;
-        mainPanel.add(phoneField, gbc);
+        
+        mainPanel.add(phoneField);
 
-        gbc.gridx = 0;
-        gbc.gridy = 6;
-        gbc.insets = new Insets(0, 0, 0, 0);
-        gbc.anchor = GridBagConstraints.WEST;
-        mainPanel.add(emailLabel, gbc);
+        
+        mainPanel.add(emailLabel);
 
-        gbc.gridx = 1;
-        gbc.anchor = GridBagConstraints.EAST;
-        mainPanel.add(emailField, gbc);
+        
+        mainPanel.add(emailField);
 
-        gbc.gridx = 0;
-        gbc.gridy = 7;
-        gbc.gridwidth = 2;
-        gbc.anchor = GridBagConstraints.CENTER;
-        mainPanel.add(btnPanel, gbc);
+        
+        mainPanel.add(btnPanel);
 
         frame.add(mainPanel);
         frame.pack();
